@@ -137,7 +137,3 @@ class Spaceman():
 
         return LaunchPad(req)
         
-
-
-spacex = Spaceman()
-print(spacex.launchpad("5e9e4502f509092b78566f87"))
