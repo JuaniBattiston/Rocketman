@@ -7,6 +7,9 @@ from dragon import Dragon
 from landingpads import LandingPad
 from launches import Launch
 from launchpad import LaunchPad
+from payloads import Payload
+from roadster import Roadster
+from rockets import Rocket
 
 class Spaceman():
 
@@ -137,5 +140,35 @@ class Spaceman():
 
         return LaunchPad(req)
 
-spacex = Spaceman()
-print(spacex.get_launchpads[1].launches)
+    @property
+    def get_payloads(self):
+
+        req = self._get("payloads")
+
+        return [Payload(i) for i in req]
+
+    def payload(self, _id):
+
+        req = self._get(f"payloads/{_id}")
+
+        return Payload(req)
+
+    @property
+    def roadster(self):
+
+        req = self._get(f"roadster")
+
+        return Roadster(req)
+
+    @property
+    def get_rockets(self):
+
+        req = self._get("rockets")
+
+        return [Rocket(i) for i in req]
+
+    def rocket(self, _id):
+
+        req = self._get(f"rockets/{_id}")
+
+        return Rocket(req)
