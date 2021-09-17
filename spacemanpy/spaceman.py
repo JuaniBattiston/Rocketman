@@ -54,7 +54,7 @@ class Spaceman():
         return Core(req)
 
     @property
-    def get_crew(self):
+    def get_crew_members(self):
 
         req = self._get("crew")
 
@@ -136,4 +136,3 @@ class Spaceman():
         req = self._get(f"launchpads/{_id}")
 
         return LaunchPad(req)
-        

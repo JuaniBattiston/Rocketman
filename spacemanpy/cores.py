@@ -1,26 +1,87 @@
 class Core():
 
     __slots__ = (
-        "block",
-        "reuse_count",
-        "rtls_attempts",
-        "rtls_landings",
-        "asds_attempts",
-        "last_update",
-        "launches",
-        "serial",
-        "status",
+        "response",
         "id"
     )
 
-    def __init__(self, content):
-        self.block:int = content["block"]
-        self.reuse_count:int = content["reuse_count"]
-        self.rtls_attempts:int = content["rtls_attempts"]
-        self.rtls_landings:int = content["rtls_landings"]
-        self.asds_attempts:int = content["asds_attempts"]
-        self.last_update:str = content["last_update"]
-        self.launches:list = content["launches"]
-        self.serial:str = content["serial"]
-        self.status:str = content["status"]
-        self.id:str = content["id"]
+    def __init__(self, response):
+        self.response:dict = response
+        self.id:str = response["id"]
+
+    @property
+    def block(self) -> int:
+        """
+        Returns the core block
+        """
+        return self.response["block"]
+
+    @property
+    def reuse_count(self) -> int:
+        """
+        Returns the core reuses count
+        """
+        return self.response["reuse_count"]
+
+    @property
+    def rtls_attempts(self) -> int:
+        """
+        Returns the core rtls attempts count
+        """
+        return self.response["rtls_attempts"]
+
+    @property
+    def rtls_landings(self) -> int:
+        """
+        Returns the core rtls landings count
+        """
+        return self.response["rtls_landings"]
+
+    @property
+    def asds_attempts(self) -> int:
+        """
+        Returns the core asds attempts count
+        """
+        return self.response["asds_attempts"]
+
+    @property
+    def asds_landings(self) -> int:
+        """
+        Returns the core asds landings count
+        """
+        return self.response["asds_landings"]
+
+    @property
+    def asds_landings(self) -> int:
+        """
+        Returns the core asds landings count
+        """
+        return self.response["asds_landings"]
+
+    @property
+    def last_update(self) -> str:
+        """
+        Returns the core last update
+        """
+        return self.response["last_update"]
+
+    @property
+    def launches(self) -> list:
+        """
+        Returns a list of launch id involving the core
+        """
+        return self.response["launches"]
+
+    @property
+    def serial(self) -> str:
+        """
+        Returns the core serial
+        """
+        return self.response["serial"]
+
+    @property
+    def status(self) -> str:
+        """
+        Returns the core status
+        """
+        return self.response["status"]
