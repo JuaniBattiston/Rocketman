@@ -136,3 +136,6 @@ class Spaceman():
         req = self._get(f"launchpads/{_id}")
 
         return LaunchPad(req)
+
+spacex = Spaceman()
+print(spacex.get_launchpads[1].launches)
