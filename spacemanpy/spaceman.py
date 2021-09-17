@@ -4,6 +4,9 @@ from company import Company
 from cores import Core
 from crewmember import CrewMember
 from dragon import Dragon
+from landingpads import LandingPad
+from launches import Launch
+from launchpad import LaunchPad
 
 class Spaceman():
 
@@ -76,5 +79,65 @@ class Spaceman():
 
         return Dragon(req)
 
+    @property
+    def get_landpads(self):
+
+        req = self._get("landpads")
+
+        return [LandingPad(i) for i in req]
+
+    def get_landpad(self, _id):
+
+        req = self._get(f"Landpads/{_id}")
+
+        return LandingPad(req)
+
+    @property
+    def get_launches(self):
+
+        req = self._get("launches")
+
+        return [Launch(i) for i in req]
+
+    def get_launch(self, _id):
+
+        req = self._get(f"launches/{_id}")
+
+        return Launch(req)
+
+    def latest_launch(self):
+
+        req = self._get("launches/latest")
+
+        return Launch(req)
+
+    def next_launch(self):
+
+        req = self._get("launches/next")
+
+        return Launch(req)
+
+    @property
+    def upcoming_launches(self):
+
+        req = self._get("launches/upcoming")
+
+        return [Launch(i) for i in req]
+
+    @property
+    def get_launchpads(self):
+
+        req = self._get("launchpads")
+
+        return [LaunchPad(i) for i in req]
+
+    def launchpad(self, _id):
+
+        req = self._get(f"launchpads/{_id}")
+
+        return LaunchPad(req)
+        
+
+
 spacex = Spaceman()
-print(spacex.get_dragon("5e9d058759b1ff74a7ad5f8f").__slots__)
+print(spacex.launchpad("5e9e4502f509092b78566f87"))

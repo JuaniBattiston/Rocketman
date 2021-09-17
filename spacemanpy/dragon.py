@@ -27,7 +27,7 @@ class Dragon():
 
     def __init__(self, content):
         self.heat_shield:dict = content["heat_shield"]
-        self.lauch_payload_mass:dict = content["launch_payload_mass"]
+        self.launch_payload_mass:dict = content["launch_payload_mass"]
         self.launch_payload_vol:dict = content["launch_payload_vol"]
         self.return_payload_vol:dict = content["return_payload_vol"]
         self.pressurized_capsule:dict = content["pressurized_capsule"]
