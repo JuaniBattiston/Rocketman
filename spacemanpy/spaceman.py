@@ -10,11 +10,14 @@ from launchpad import LaunchPad
 from payloads import Payload
 from roadster import Roadster
 from rockets import Rocket
+from ships import Ship
+from starlink import Starlink
+from history import HistoricEvent
 
 class Spaceman():
 
     def __init__(self):
-        self
+        pass
 
     def _get(self, method):
 
@@ -172,3 +175,42 @@ class Spaceman():
         req = self._get(f"rockets/{_id}")
 
         return Rocket(req)
+
+    @property
+    def get_ships(self):
+
+        req = self._get("ships")
+
+        return [Ship(i) for i in req]
+
+    def ship(self, _id):
+
+        req = self._get(f"ships/{_id}")
+
+        return Ship(req)
+
+    @property
+    def get_all_starlink(self):
+
+        req = self._get("starlink")
+
+        return [Starlink(i) for i in req]
+
+    def starlink(self, _id):
+
+        req = self._get(f"starlink/{_id}")
+
+        return Starlink(req)
+
+    @property
+    def get_historic_events(self):
+
+        req = self._get("history")
+
+        return [HistoricEvent(i) for i in req]
+
+    def historic_event(self, _id):
+
+        req = self._get(f"history/{_id}")
+
+        return HistoricEvent(req)
