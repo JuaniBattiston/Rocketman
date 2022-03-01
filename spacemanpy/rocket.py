@@ -1,4 +1,4 @@
-from spacemanpy.common import BaseClass, Mass, Measurement, Weight
+from spacemanpy.common import BaseClass, Mass, Measurement, Thrust, Weight
 from spacemanpy.types.rocket import (
     EngineType,
     LandingLegType,
@@ -12,11 +12,13 @@ from spacemanpy.types.rocket import (
 
 class Stage(BaseClass):
     def __init__(self, data: StageType) -> None:
+        self._objects = {"thrust_sea_level": Thrust, "thrust_vacuum": Thrust}
         self._update(data)
 
 
 class Engine(BaseClass):
     def __init__(self, data: EngineType) -> None:
+        self._objects = {"thrust_sea_level": Thrust, "thrust_vacuum": Thrust}
         self._update(data)
 
 
@@ -38,6 +40,7 @@ class Rocket(BaseClass):
             "payload_weights": Weight,
         }
         self._update(data)
+        # print(data)
 
     def __str__(self) -> str:
         return self.name

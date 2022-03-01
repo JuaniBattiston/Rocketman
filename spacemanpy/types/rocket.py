@@ -1,4 +1,4 @@
-from typing import Dict, List, TypedDict, Union
+from typing import Dict, List, Optional, TypedDict, Union
 from spacemanpy.types.common import (
     ThrustType,
     MeasurementType,
@@ -14,8 +14,8 @@ class StageType(TypedDict):
     reusable: bool
     thrust_sea_level: ThrustType
     thrust_vacuum: ThrustType
-    payloads: Union[Dict, None]
-    option_1: Union[str, None]
+    payloads: Optional[Union[Dict, None]]
+    option_1: Optional[Union[str, None]]
     thrust: Union[str, None]
 
 

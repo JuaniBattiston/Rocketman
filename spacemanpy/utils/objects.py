@@ -26,10 +26,11 @@ class BaseClass:
 
                 setattr(self, k.lower(), self._objects[k](v))
                 continue
+            setattr(self, k.lower(), v)
 
     def _update(self, data) -> None:
 
         if hasattr(self, "_objects"):
             self._extended_update(data)
-        else:
-            self._basic_update(data)
+
+        self._basic_update(data)
