@@ -1,45 +1,22 @@
-class CrewMember():
+from spacemanpy.types.crewmember import CrewMemberData
 
-    __slots__ = (
-        "response",
-        "id"
-    )
 
-    def __init__(self, response):
-        self.response:dict = response
-        self.id:str = response["id"]
+class CrewMember:
+    def __init__(self, data: CrewMemberData):
+        self._update(data)
 
-    @property
-    def name(self) -> str:
-        """
-        Returns the crew member's name
-        """
-        return self.response["name"]
+    def _update(self, data: CrewMemberData):
+        for k, v in data.items():
+            setattr(self, k, v)
 
-    @property
-    def agency(self) -> str:
-        """
-        Returns the crew member's agency
-        """
-        return self.response["agency"]
+    def __str__(self) -> str:
+        return self.name
 
-    @property
-    def image(self) -> str:
-        """
-        Returns a crew member's image
-        """
-        return self.response["image"]
-
-    @property
-    def launches(self) -> list:
-        """
-        Returns a list of the crew member's launches ids
-        """
-        return self.response["launches"]
-
-    @property
-    def status(self) -> str:
-        """
-        Returns a crew member's status
-        """
-        return self.response["status"]
+    def __repr__(self) -> str:
+        attrs = {
+            "id": self.id,
+            "name": self.name,
+            "agency": self.agency,
+        }
+        info = " ".join(f"{k}={v}" for k, v in attrs.items())
+        return f"<{__class__.__name__} {info}>"

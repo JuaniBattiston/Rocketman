@@ -1,11 +1,11 @@
-from spacemanpy.types.history import HistoricEventData
+from spacemanpy.types.core import CoreData
 
 
-class HistoricEvent:
-    def __init__(self, data: HistoricEventData):
+class Core:
+    def __init__(self, data: CoreData):
         self._update(data)
 
-    def _update(self, data: HistoricEventData):
+    def _update(self, data: CoreData):
         for k, v in data.items():
             setattr(self, k, v)
 
@@ -15,7 +15,8 @@ class HistoricEvent:
     def __repr__(self) -> str:
         attrs = {
             "id": self.id,
-            "title": self.title,
+            "serial": self.serial,
+            "status": self.status,
         }
         info = " ".join(f"{k}={v}" for k, v in attrs.items())
         return f"<{__class__.__name__} {info}>"

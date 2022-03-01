@@ -1,11 +1,11 @@
-from spacemanpy.types.history import HistoricEventData
+from spacemanpy.types.capsule import CapsuleData
 
 
-class HistoricEvent:
-    def __init__(self, data: HistoricEventData):
+class Capsule:
+    def __init__(self, data: CapsuleData):
         self._update(data)
 
-    def _update(self, data: HistoricEventData):
+    def _update(self, data: CapsuleData) -> None:
         for k, v in data.items():
             setattr(self, k, v)
 
@@ -15,7 +15,7 @@ class HistoricEvent:
     def __repr__(self) -> str:
         attrs = {
             "id": self.id,
-            "title": self.title,
+            "status": self.status,
         }
         info = " ".join(f"{k}={v}" for k, v in attrs.items())
         return f"<{__class__.__name__} {info}>"

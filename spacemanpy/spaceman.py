@@ -1,216 +1,174 @@
-import requests
-from capsules import Capsule
-from company import Company
-from cores import Core
-from crewmember import CrewMember
-from dragon import Dragon
-from landingpads import LandingPad
-from launches import Launch
-from launchpad import LaunchPad
-from payloads import Payload
-from roadster import Roadster
-from rockets import Rocket
-from ships import Ship
-from starlink import Starlink
-from history import HistoricEvent
+import asyncio
 
-class Spaceman():
+from spacemanpy.crewmember import CrewMember
+from spacemanpy.capsule import Capsule
+from spacemanpy.company import Company
+from spacemanpy.core import Core
+from spacemanpy.dragon import Dragon
+from spacemanpy.history import HistoricEvent
+from spacemanpy.landingpad import LandingPad
+from spacemanpy.launch import Launch
+from spacemanpy.launchpad import LaunchPad
+from spacemanpy.payload import Payload
+from spacemanpy.roadster import Roadster
+from spacemanpy.rocket import Rocket
+from spacemanpy.ship import Ship
+from spacemanpy.starlink import Starlink
+from spacemanpy.http import HTTPClient
 
-    def __init__(self):
-        pass
+from typing import List, Optional
 
-    def _get(self, method):
+from spacemanpy.types.starlink import StarlinkData
 
-        base_url = f"https://api.spacexdata.com/v4/{method}"
-        req = requests.get(url = base_url, timeout = 5)
-        req.raise_for_status()
 
-        return req.json()
+class Spaceman:
+    def __init__(self, loop: Optional[asyncio.AbstractEventLoop] = None):
+        self._http = HTTPClient(loop)
+        self.base_url = "https://api.spacexdata.com/v4/"
 
-    @property
-    def get_capsules(self):
+    async def get_capsules(self) -> List[Capsule]:
 
-        req = self._get("capsules")
+        data = await self._http.request(method="GET", path="capsules")
+        return [Capsule(i) for i in data]
 
-        return [Capsule(i) for i in req]
+    async def get_capsule(self, id: str) -> Capsule:
 
-    def get_capsule(self, _id):
+        data = await self._http.request(method="GET", path="capsules/" + id)
+        return Capsule(data)
 
-        req = self._get(f"capsules/{_id}")
+    async def company_info(self) -> Company:
 
-        return Capsule(req)
+        data = await self._http.request(method="GET", path="company")
+        return Company(data)
 
-    @property
-    def company_info(self):
+    async def get_cores(self) -> List[Core]:
 
-        req = self._get("company")
-        return Company(req)
+        data = await self._http.request(method="GET", path="cores")
+        return [Core(i) for i in data]
 
-    @property
-    def get_cores(self):
+    async def get_core(self, id: str) -> Core:
 
-        req = self._get("cores")
+        data = await self._http.request(method="GET", path="cores/" + id)
+        return Core(data)
 
-        return [Core(i) for i in req]
+    async def get_crewmembers(self) -> List[CrewMember]:
 
-    def get_core(self, _id):
+        data = await self._http.request(method="GET", path="crew")
+        return [CrewMember(i) for i in data]
 
-        req = self._get(f"cores/{_id}")
+    async def get_crew_member(self, id: str) -> CrewMember:
 
-        return Core(req)
+        data = await self._http.request(method="GET", path="crew/" + id)
+        return CrewMember(data)
 
-    @property
-    def get_crew_members(self):
+    async def get_dragons(self) -> List[Dragon]:
 
-        req = self._get("crew")
+        data = await self._http.request(method="GET", path="dragons")
+        return [Dragon(i) for i in data]
 
-        return [CrewMember(i) for i in req]
+    async def get_dragon(self, id: str) -> Dragon:
 
-    def get_crew_member(self, _id):
+        data = await self._http.request(method="GET", path="dragons/" + id)
+        return Dragon(data)
 
-        req = self._get(f"crew/{_id}")
+    async def get_historic_events(self) -> List[HistoricEvent]:
 
-        return CrewMember(req)
+        data = await self._http.request(method="GET", path="history")
+        return [HistoricEvent(i) for i in data]
 
-    @property
-    def get_dragons(self):
+    async def historic_event(self, id: str) -> HistoricEvent:
 
-        req = self._get("dragons")
+        data = await self._http.request(method="GET", path="history/" + id)
+        return HistoricEvent(data)
 
-        return [Dragon(i) for i in req]
+    async def get_landpads(self) -> List[LandingPad]:
 
-    def get_dragon(self, _id):
+        data = await self._http.request(method="GET", path="landpads")
+        return [LandingPad(i) for i in data]
 
-        req = self._get(f"dragons/{_id}")
+    async def get_landpad(self, id: str) -> LandingPad:
 
-        return Dragon(req)
+        data = await self._http.request(method="GET", path="landpads/" + id)
+        return LandingPad(data)
 
-    @property
-    def get_landpads(self):
+    async def get_launches(self) -> List[Launch]:
 
-        req = self._get("landpads")
+        data = await self._http.request(method="GET", path="launches")
+        return [Launch(i) for i in data]
 
-        return [LandingPad(i) for i in req]
+    async def get_launch(self, id: str) -> Launch:
 
-    def get_landpad(self, _id):
+        data = await self._http.request(method="GET", path="launches/" + id)
+        return Launch(data)
 
-        req = self._get(f"Landpads/{_id}")
+    async def latest_launch(self) -> Launch:
 
-        return LandingPad(req)
+        data = await self._http.request(method="GET", path="launches/latest")
+        return Launch(data)
 
-    @property
-    def get_launches(self):
+    async def next_launch(self) -> Launch:
 
-        req = self._get("launches")
+        data = await self._http.request(method="GET", path="launches/next")
+        return Launch(data)
 
-        return [Launch(i) for i in req]
+    async def upcoming_launches(self) -> List[Launch]:
 
-    def get_launch(self, _id):
+        data = await self._http.request(method="GET", path="launches/upcoming")
+        return [Launch(i) for i in data]
 
-        req = self._get(f"launches/{_id}")
+    async def get_launchpads(self) -> List[LaunchPad]:
 
-        return Launch(req)
+        data = await self._http.request(method="GET", path="launchpads")
+        return [LaunchPad(i) for i in data]
 
-    def latest_launch(self):
+    async def launchpad(self, id: str) -> LaunchPad:
 
-        req = self._get("launches/latest")
+        data = await self._http.request(method="GET", path="launchpad/" + id)
+        return LaunchPad(data)
 
-        return Launch(req)
+    async def get_payloads(self) -> List[Payload]:
 
-    def next_launch(self):
+        data = await self._http.request(method="GET", path="payloads")
+        return [Payload(i) for i in data]
 
-        req = self._get("launches/next")
+    async def payload(self, id: str) -> Payload:
 
-        return Launch(req)
+        data = await self._http.request(method="GET", path="payloads/" + id)
+        return Payload(data)
 
-    @property
-    def upcoming_launches(self):
+    async def roadster(self) -> Roadster:
 
-        req = self._get("launches/upcoming")
+        data = await self._http.request(method="GET", path="roadster")
+        return Roadster(data)
 
-        return [Launch(i) for i in req]
+    async def get_rockets(self) -> List[Rocket]:
 
-    @property
-    def get_launchpads(self):
+        data = await self._http.request(method="GET", path="rockets")
+        return [Rocket(i) for i in data]
 
-        req = self._get("launchpads")
+    async def rocket(self, id: str) -> Rocket:
 
-        return [LaunchPad(i) for i in req]
+        data = await self._http.request(method="GET", path="rockets/" + id)
+        return Rocket(data)
 
-    def launchpad(self, _id):
+    async def get_ships(self) -> List[Ship]:
 
-        req = self._get(f"launchpads/{_id}")
+        data = await self._http.request(method="GET", path="ships")
+        return [Ship(i) for i in data]
 
-        return LaunchPad(req)
+    async def ship(self, id: str) -> Ship:
 
-    @property
-    def get_payloads(self):
+        data = await self._http.request(method="GET", path="ships/" + id)
+        return Ship(data)
 
-        req = self._get("payloads")
+    async def get_starlinks(self) -> List[Starlink]:
 
-        return [Payload(i) for i in req]
+        data = await self._http.request(method="GET", path="starlink")
+        return [Starlink(i) for i in data]
 
-    def payload(self, _id):
+    async def get_starlink(self, id: str) -> Starlink:
 
-        req = self._get(f"payloads/{_id}")
-
-        return Payload(req)
-
-    @property
-    def roadster(self):
-
-        req = self._get(f"roadster")
-
-        return Roadster(req)
-
-    @property
-    def get_rockets(self):
-
-        req = self._get("rockets")
-
-        return [Rocket(i) for i in req]
-
-    def rocket(self, _id):
-
-        req = self._get(f"rockets/{_id}")
-
-        return Rocket(req)
-
-    @property
-    def get_ships(self):
-
-        req = self._get("ships")
-
-        return [Ship(i) for i in req]
-
-    def ship(self, _id):
-
-        req = self._get(f"ships/{_id}")
-
-        return Ship(req)
-
-    @property
-    def get_all_starlink(self):
-
-        req = self._get("starlink")
-
-        return [Starlink(i) for i in req]
-
-    def starlink(self, _id):
-
-        req = self._get(f"starlink/{_id}")
-
-        return Starlink(req)
-
-    @property
-    def get_historic_events(self):
-
-        req = self._get("history")
-
-        return [HistoricEvent(i) for i in req]
-
-    def historic_event(self, _id):
-
-        req = self._get(f"history/{_id}")
-
-        return HistoricEvent(req)
+        data: StarlinkData = await self._http.request(
+            method="GET", path="starlink/" + id
+        )
+        return Starlink(data)
