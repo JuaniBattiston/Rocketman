@@ -16,8 +16,8 @@ spaceman = Spaceman(loop)
 
 
 async def main():
-    a = await spaceman.get_rocket("5e9d0d95eda69955f709d1eb")
-    print(a.payload_weights.kg)
+    a = await spaceman.get_starlinks()
+    print(a[0].spacetrack.site)
 
 
 loop.run_until_complete(main())

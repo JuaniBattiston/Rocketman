@@ -1,13 +1,10 @@
 from spacemanpy.types.ship import ShipData
+from spacemanpy.utils.objects import BaseClass
 
 
-class Ship:
+class Ship(BaseClass):
     def __init__(self, data: ShipData) -> None:
         self._update(data)
-
-    def _update(self, data: ShipData) -> None:
-        for k, v in data.items():
-            setattr(self, k, v)
 
     def __str__(self) -> str:
         return self.name
