@@ -145,7 +145,7 @@ class Spaceman:
         data = await self._http.request(method="GET", path="rockets")
         return [Rocket(i) for i in data]
 
-    async def rocket(self, id: str) -> Rocket:
+    async def get_rocket(self, id: str) -> Rocket:
 
         data = await self._http.request(method="GET", path="rockets/" + id)
         return Rocket(data)

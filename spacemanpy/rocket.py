@@ -1,13 +1,43 @@
-from spacemanpy.types.rocket import RocketData
+from spacemanpy.common import BaseClass, Mass, Measurement, Weight
+from spacemanpy.types.rocket import (
+    EngineType,
+    LandingLegType,
+    RocketData,
+    StageType,
+    LandingLegType,
+    EngineType,
+    StageType,
+)
 
 
-class Rocket:
-    def __init__(self, data: RocketData):
+class Stage(BaseClass):
+    def __init__(self, data: StageType) -> None:
         self._update(data)
 
-    def _update(self, data: RocketData):
-        for k, v in data.items():
-            setattr(self, k, v)
+
+class Engine(BaseClass):
+    def __init__(self, data: EngineType) -> None:
+        self._update(data)
+
+
+class LandingLeg(BaseClass):
+    def __init__(self, data: LandingLegType) -> None:
+        self._update(data)
+
+
+class Rocket(BaseClass):
+    def __init__(self, data: RocketData):
+        self._objects = {
+            "height": Measurement,
+            "diameter": Measurement,
+            "mass": Mass,
+            "first_stage": Stage,
+            "second_stage": Stage,
+            "engines": Engine,
+            "landing_legs": LandingLeg,
+            "payload_weights": Weight,
+        }
+        self._update(data)
 
     def __str__(self) -> str:
         return self.name

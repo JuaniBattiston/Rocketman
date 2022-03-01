@@ -1,9 +1,9 @@
 from typing import List, TypedDict
 from spacemanpy.types.common import (
-    Volume,
-    Thrust,
-    Mass,
-    Measurement,
+    VolumeType,
+    ThrustType,
+    MassType,
+    MeasurementType,
 )
 
 
@@ -21,7 +21,7 @@ class Cargo(TypedDict):
 
 class Trunk(TypedDict):
     cargo: Cargo
-    trunk_volume: Volume
+    trunk_volume: VolumeType
 
 
 class Thruster(TypedDict):
@@ -30,21 +30,21 @@ class Thruster(TypedDict):
     fuel_2: str
     isp: int
     pods: int
-    thrust: Thrust
+    thrust: ThrustType
     type: str
 
 
 class DragonData(TypedDict):
     id: str
     heat_shield: HeatShield
-    launch_payload_mass: Mass
-    launch_payload_vol: Volume
-    return_payload_mass: Mass
-    return_payload_vol: Volume
-    pressurized_capsule: Volume
+    launch_payload_mass: MassType
+    launch_payload_vol: VolumeType
+    return_payload_mass: MassType
+    return_payload_vol: VolumeType
+    pressurized_capsule: VolumeType
     trunk: Trunk
-    height_w_trunk: Measurement
-    diamenter: Measurement
+    height_w_trunk: MeasurementType
+    diamenter: MeasurementType
     first_flight: str
     flickr_images: List[str]
     name: str

@@ -2,10 +2,10 @@ from spacemanpy.types.ship import ShipData
 
 
 class Ship:
-    def __init__(self, data: ShipData):
+    def __init__(self, data: ShipData) -> None:
         self._update(data)
 
-    def _update(self, data: ShipData):
+    def _update(self, data: ShipData) -> None:
         for k, v in data.items():
             setattr(self, k, v)
 
