@@ -1,13 +1,11 @@
 from spacemanpy.types.launchpad import LaunchPadData
+from spacemanpy.utils.objects import BaseClass
 
 
-class LaunchPad:
+class LaunchPad(BaseClass):
     def __init__(self, data: LaunchPadData):
+        self._objects = {}
         self._update(data)
-
-    def _update(self, data: LaunchPadData):
-        for k, v in data.items():
-            setattr(self, k, v)
 
     def __str__(self) -> str:
         return self.name

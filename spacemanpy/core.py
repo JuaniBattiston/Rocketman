@@ -1,13 +1,11 @@
 from spacemanpy.types.core import CoreData
+from spacemanpy.utils.objects import BaseClass
 
 
-class Core:
+class Core(BaseClass):
     def __init__(self, data: CoreData):
+        self._objects = {}
         self._update(data)
-
-    def _update(self, data: CoreData):
-        for k, v in data.items():
-            setattr(self, k, v)
 
     def __str__(self) -> str:
         return self.name

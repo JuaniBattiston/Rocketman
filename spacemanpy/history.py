@@ -1,13 +1,11 @@
 from spacemanpy.types.history import HistoricEventData
+from spacemanpy.utils.objects import BaseClass
 
 
-class HistoricEvent:
+class HistoricEvent(BaseClass):
     def __init__(self, data: HistoricEventData):
+        self._objects = {}
         self._update(data)
-
-    def _update(self, data: HistoricEventData):
-        for k, v in data.items():
-            setattr(self, k, v)
 
     def __str__(self) -> str:
         return self.name

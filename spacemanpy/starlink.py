@@ -4,6 +4,7 @@ from spacemanpy.utils.objects import BaseClass
 
 class SpaceTrack(BaseClass):
     def __init__(self, data: SpaceTrackData) -> None:
+        self._objects = {}
         self._update(data)
 
 

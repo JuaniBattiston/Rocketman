@@ -1,13 +1,17 @@
-from spacemanpy.types.payload import PayloadData
+from spacemanpy.types.payload import PayloadData, DragonPayloadData
+from spacemanpy.utils.objects import BaseClass
 
 
-class Payload:
-    def __init__(self, data: PayloadData):
+class DragonPayload(BaseClass):
+    def __init__(self, data: DragonPayloadData):
+        self._objects = {}
         self._update(data)
 
-    def _update(self, data: PayloadData):
-        for k, v in data.items():
-            setattr(self, k, v)
+
+class Payload(BaseClass):
+    def __init__(self, data: PayloadData):
+        self._objects = {"dragon": DragonPayload}
+        self._update(data)
 
     def __str__(self) -> str:
         return self.name

@@ -1,16 +1,14 @@
 from spacemanpy.types.capsule import CapsuleData
+from spacemanpy.utils.objects import BaseClass
 
 
-class Capsule:
+class Capsule(BaseClass):
     def __init__(self, data: CapsuleData):
+        self._objects = {}
         self._update(data)
 
-    def _update(self, data: CapsuleData) -> None:
-        for k, v in data.items():
-            setattr(self, k, v)
-
     def __str__(self) -> str:
-        return self.name
+        return self.id
 
     def __repr__(self) -> str:
         attrs = {

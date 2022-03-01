@@ -1,13 +1,11 @@
 from spacemanpy.types.crewmember import CrewMemberData
+from spacemanpy.utils.objects import BaseClass
 
 
-class CrewMember:
+class CrewMember(BaseClass):
     def __init__(self, data: CrewMemberData):
+        self._objects = {}
         self._update(data)
-
-    def _update(self, data: CrewMemberData):
-        for k, v in data.items():
-            setattr(self, k, v)
 
     def __str__(self) -> str:
         return self.name

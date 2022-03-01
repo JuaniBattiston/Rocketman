@@ -1,13 +1,24 @@
-from spacemanpy.types.launch import LaunchData
+from spacemanpy.types.launch import FailureData, FairingData, LaunchData
+from spacemanpy.utils.objects import BaseClass
 
 
-class Launch:
-    def __init__(self, data: LaunchData):
+class Fairing(BaseClass):
+    def __init__(self, data: FairingData):
+        self._objects = {}
         self._update(data)
 
-    def _update(self, data: LaunchData):
-        for k, v in data.items():
-            setattr(self, k, v)
+
+class Failure(BaseClass):
+    def __init__(self, data: FailureData):
+        self._objects = {}
+        self._update(data)
+
+
+class Launch(BaseClass):
+    def __init__(self, data: LaunchData):
+        self.data = data
+        self._objects = {"failures": Failure, "fairings": Fairing}
+        self._update(data)
 
     def __str__(self) -> str:
         return self.name

@@ -6,14 +6,13 @@ class BaseClass:
         self._objects = {}
         self._update(data)
 
-    def _basic_update(self, data) -> None:
-        for k, v in data.items():
-            setattr(self, k.lower(), v)
+    def _update(self, data) -> None:
 
-    def _extended_update(self, data) -> None:
+        if not data:
+            return
+
         for k, v in data.items():
             if k in self._objects:
-
                 if isinstance(v, list):
                     setattr(
                         self,
@@ -26,11 +25,5 @@ class BaseClass:
 
                 setattr(self, k.lower(), self._objects[k](v))
                 continue
+
             setattr(self, k.lower(), v)
-
-    def _update(self, data) -> None:
-
-        if hasattr(self, "_objects"):
-            self._extended_update(data)
-
-        self._basic_update(data)

@@ -19,5 +19,7 @@ class HTTPClient:
 
     async def request(self, method, path="", timeout=None):
         async with self._http as session:
-            req = await session.request(method=method, url=self.BASE_URL + path)
+            req = await session.request(
+                method=method, url=self.BASE_URL + path, timeout=timeout
+            )
             return await req.json()

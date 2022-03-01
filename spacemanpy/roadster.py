@@ -3,6 +3,7 @@ from spacemanpy.types.roadster import RoadsterData
 
 class Roadster:
     def __init__(self, data: RoadsterData):
+        self._objects = {}
         self._update(data)
 
     def _update(self, data: RoadsterData):

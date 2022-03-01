@@ -16,10 +16,9 @@ spaceman = Spaceman(loop)
 
 
 async def main():
-    a = await spaceman.get_rockets()
-    # print(a[0].engines)
+    a = await spaceman.get_capsules()
     # print(a[0].engines.thrust_vacuum.kn)
-    print(a[-2].second_stage.option_1)
+    print(a[0].id)
 
 
 loop.run_until_complete(main())

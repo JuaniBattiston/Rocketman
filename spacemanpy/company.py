@@ -1,13 +1,23 @@
-from spacemanpy.types.company import CompanyData
+from spacemanpy.types.company import CompanyData, CompanyLinksData, HeadquartersData
+from spacemanpy.utils.objects import BaseClass
 
 
-class Company:
-    def __init__(self, data: CompanyData):
+class Headquarters(BaseClass):
+    def __init__(self, data: HeadquartersData):
+        self._objects = {}
         self._update(data)
 
-    def _update(self, data: CompanyData) -> None:
-        for k, v in data.items():
-            setattr(self, k, v)
+
+class CompanyLinks(BaseClass):
+    def __init__(self, data: CompanyLinksData):
+        self._objects = {}
+        self._update(data)
+
+
+class Company(BaseClass):
+    def __init__(self, data: CompanyData):
+        self._objects = {"headquarters": Headquarters, "links": CompanyLinks}
+        self._update(data)
 
     def __repr__(self) -> str:
         attrs = {

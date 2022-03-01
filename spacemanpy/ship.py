@@ -4,6 +4,7 @@ from spacemanpy.utils.objects import BaseClass
 
 class Ship(BaseClass):
     def __init__(self, data: ShipData) -> None:
+        self._objects = {}
         self._update(data)
 
     def __str__(self) -> str:

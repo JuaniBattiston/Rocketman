@@ -24,6 +24,7 @@ class Engine(BaseClass):
 
 class LandingLeg(BaseClass):
     def __init__(self, data: LandingLegType) -> None:
+        self._objects = {}
         self._update(data)
 
 
@@ -40,7 +41,6 @@ class Rocket(BaseClass):
             "payload_weights": Weight,
         }
         self._update(data)
-        # print(data)
 
     def __str__(self) -> str:
         return self.name

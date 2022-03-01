@@ -7,24 +7,24 @@ from spacemanpy.types.common import (
 )
 
 
-class HeatShield(TypedDict):
+class HeatShieldData(TypedDict):
     material: str
     size: float
     temp_degrees: int
     dev_partner: str
 
 
-class Cargo(TypedDict):
+class CargoData(TypedDict):
     solar_array: int
     unpressurized_cargo: bool
 
 
-class Trunk(TypedDict):
-    cargo: Cargo
+class TrunkData(TypedDict):
+    cargo: CargoData
     trunk_volume: VolumeType
 
 
-class Thruster(TypedDict):
+class ThrusterData(TypedDict):
     amount: int
     fuel_1: str
     fuel_2: str
@@ -36,13 +36,13 @@ class Thruster(TypedDict):
 
 class DragonData(TypedDict):
     id: str
-    heat_shield: HeatShield
+    heat_shield: HeatShieldData
     launch_payload_mass: MassType
     launch_payload_vol: VolumeType
     return_payload_mass: MassType
     return_payload_vol: VolumeType
     pressurized_capsule: VolumeType
-    trunk: Trunk
+    trunk: TrunkData
     height_w_trunk: MeasurementType
     diamenter: MeasurementType
     first_flight: str
@@ -55,6 +55,6 @@ class DragonData(TypedDict):
     orbit_duration_yr: int
     dry_mass_kg: int
     dry_mass_lb: int
-    thrusters: List[Thruster]
+    thrusters: List[ThrusterData]
     wikipedia: str
     description: str

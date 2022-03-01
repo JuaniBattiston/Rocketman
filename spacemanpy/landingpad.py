@@ -1,13 +1,11 @@
 from spacemanpy.types.landingpad import LandingPadData
+from spacemanpy.utils.objects import BaseClass
 
 
-class LandingPad:
+class LandingPad(BaseClass):
     def __init__(self, data: LandingPadData):
+        self._objects = {}
         self._update(data)
-
-    def _update(self, data: LandingPadData):
-        for k, v in data.items():
-            setattr(self, k, v)
 
     def __str__(self) -> str:
         return self.name
