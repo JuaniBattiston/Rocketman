@@ -24,7 +24,6 @@ from spacemanpy.types.starlink import StarlinkData
 class Spaceman:
     def __init__(self, loop: Optional[asyncio.AbstractEventLoop] = None):
         self._http = HTTPClient(loop)
-        self.base_url = "https://api.spacexdata.com/v4/"
 
     async def get_capsules(self) -> List[Capsule]:
 
@@ -168,7 +167,5 @@ class Spaceman:
 
     async def get_starlink(self, id: str) -> Starlink:
 
-        data: StarlinkData = await self._http.request(
-            method="GET", path="starlink/" + id
-        )
+        data = await self._http.request(method="GET", path="starlink/" + id)
         return Starlink(data)
