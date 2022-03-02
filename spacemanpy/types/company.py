@@ -16,7 +16,7 @@ class CompanyLinksData(TypedDict):
 
 class CompanyData(TypedDict):
     id: str
-    headquaters: HeadquartersData
+    headquarters: HeadquartersData
     links: CompanyLinksData
     name: str
     founder: str

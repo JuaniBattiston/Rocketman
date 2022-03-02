@@ -3,6 +3,19 @@ from spacemanpy.utils.objects import BaseClass
 
 
 class Core(BaseClass):
+
+    __slots__ = (
+        "id",
+        "block",
+        "reuse_count",
+        "rtls_attempts",
+        "asds_landings",
+        "last_update",
+        "launches",
+        "serial",
+        "status",
+    )
+
     def __init__(self, data: CoreData):
         self._objects = {}
         self._update(data)

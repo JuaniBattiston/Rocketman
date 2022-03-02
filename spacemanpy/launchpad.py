@@ -3,6 +3,25 @@ from spacemanpy.utils.objects import BaseClass
 
 
 class LaunchPad(BaseClass):
+
+    __slots__ = (
+        "id",
+        "images",
+        "name",
+        "full_name",
+        "locality",
+        "region",
+        "latitude",
+        "longitud",
+        "launch_attempts",
+        "launch_successes",
+        "rockets",
+        "timezone",
+        "launches",
+        "status",
+        "details",
+    )
+
     def __init__(self, data: LaunchPadData):
         self._objects = {}
         self._update(data)

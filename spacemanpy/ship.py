@@ -3,6 +3,34 @@ from spacemanpy.utils.objects import BaseClass
 
 
 class Ship(BaseClass):
+
+    __slots__ = (
+        "id",
+        "last_ais_update",
+        "legacy_id",
+        "model",
+        "type",
+        "roles",
+        "imo",
+        "mmsi",
+        "abs",
+        "_class",
+        "mass_kg",
+        "mass_lbs",
+        "year_built",
+        "home_port",
+        "status",
+        "speed_kn",
+        "course_deg",
+        "latitude",
+        "longitude",
+        "link",
+        "image",
+        "name",
+        "active",
+        "launches",
+    )
+
     def __init__(self, data: ShipData) -> None:
         self._objects = {}
         self._update(data)

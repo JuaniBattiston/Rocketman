@@ -20,6 +20,8 @@ from typing import List, Optional
 
 from spacemanpy.types.starlink import StarlinkData
 
+__all__ = "Spaceman"
+
 
 class Spaceman:
     def __init__(self, loop: Optional[asyncio.AbstractEventLoop] = None):

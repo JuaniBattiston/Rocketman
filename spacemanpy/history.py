@@ -3,6 +3,16 @@ from spacemanpy.utils.objects import BaseClass
 
 
 class HistoricEvent(BaseClass):
+
+    __slots__ = (
+        "id",
+        "links",
+        "title",
+        "event_date_utc",
+        "event_date_unix",
+        "details",
+    )
+
     def __init__(self, data: HistoricEventData):
         self._objects = {}
         self._update(data)

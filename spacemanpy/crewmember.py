@@ -3,6 +3,16 @@ from spacemanpy.utils.objects import BaseClass
 
 
 class CrewMember(BaseClass):
+    __slots__ = (
+        "id",
+        "name",
+        "agency",
+        "image",
+        "wikipedia",
+        "launches",
+        "status",
+    )
+
     def __init__(self, data: CrewMemberData):
         self._objects = {}
         self._update(data)

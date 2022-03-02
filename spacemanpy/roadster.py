@@ -1,14 +1,42 @@
 from spacemanpy.types.roadster import RoadsterData
+from spacemanpy.utils.objects import BaseClass
 
 
-class Roadster:
+class Roadster(BaseClass):
+
+    __slots__ = (
+        "id",
+        "name",
+        "launch_date_utc",
+        "launch_date_unix",
+        "launch_mass_kg",
+        "launch_mass_lbs",
+        "norad_id",
+        "epoch_jd",
+        "orbit_type",
+        "apoapsis_au",
+        "periapsis_au",
+        "semi_major_axis_au",
+        "eccentricity",
+        "inclination",
+        "longitude",
+        "periapsis_arg",
+        "period_days",
+        "speed_kph",
+        "speed_mph",
+        "earth_distance_km",
+        "earth_distance_mi",
+        "mars_distance_km",
+        "mars_distance_mi",
+        "flickr_images",
+        "wikipedia",
+        "video",
+        "details",
+    )
+
     def __init__(self, data: RoadsterData):
         self._objects = {}
         self._update(data)
-
-    def _update(self, data: RoadsterData):
-        for k, v in data.items():
-            setattr(self, k, v)
 
     def __str__(self) -> str:
         return self.name
