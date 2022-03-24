@@ -11,6 +11,7 @@ with open("README.md") as f:
 setup(
     name="rocketman",
     author="Juan Ignacio Battiston",
+    author_email="juani.battiston2002@gmail.com",
     url="https://github.com/Batucho/Rocketman",
     project_urls={},
     version="0.1.0",
