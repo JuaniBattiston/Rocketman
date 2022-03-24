@@ -11,7 +11,7 @@ class FairingData(TypedDict):
 class FailureData(TypedDict):
     time: Union[int, None]
     altitude: Union[float, None]
-    reason: str
+    reason: Union[str, None]
 
 
 class LaunchData(TypedDict):

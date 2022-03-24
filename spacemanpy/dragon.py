@@ -11,6 +11,21 @@ from spacemanpy.utils.objects import BaseClass
 
 class HeatShield(BaseClass):
 
+    """
+    Represents a heat shield.
+
+    Attributes
+    ----------
+    material: :class:`str`
+        The heat shield material.
+    size: :class:`float`
+        The heat shield's size.
+    temp_degrees: :class:`int`
+        The max temperature.
+    dev_partner: :class:`int`
+        The heat shield dev partner.
+    """
+
     __slots__ = (
         "material",
         "size",
@@ -25,6 +40,17 @@ class HeatShield(BaseClass):
 
 class Cargo(BaseClass):
 
+    """
+    Represents dragon cargo.
+
+    Attributes
+    ----------
+    solar_array: :class:`int`
+        The amount of solar arrays in dragon.
+    unpressurized_cargo: :class:`bool`
+        Bool value stating if cargo in pressurised or not.
+    """
+
     __slots__ = (
         "solar_array",
         "unpressurized_cargo",
@@ -36,6 +62,18 @@ class Cargo(BaseClass):
 
 
 class Trunk(BaseClass):
+
+    """
+    Represents dragon trunk.
+
+    Attributes
+    ----------
+    cargo: :class:`Cargo`
+        Dragon cargo.
+    trunk_volume: :class:`Volume`
+        The trunk's volume.
+    """
+
     __slots__ = (
         "cargo",
         "trunk_volume",
@@ -47,6 +85,27 @@ class Trunk(BaseClass):
 
 
 class Thruster(BaseClass):
+
+    """
+    Represents dragon thrusters.
+
+    Attributes
+    ----------
+    amount: :class:`int`
+        The amount of thrusters.
+    fuel_1: :class:`str`
+        Fuel type 1.
+    fuel_2: :class:`str`
+        Fuel type 2.
+    isp: :class:`int`
+        Dragon's isp.
+    pods: :class:`int`
+        Dragon's pods.
+    thrust: :class:`Thrust`
+        The thruster thrust.
+    type: :class:`str`
+        The thruster type.
+    """
 
     __slots__ = (
         "amount",
@@ -64,6 +123,59 @@ class Thruster(BaseClass):
 
 
 class Dragon(BaseClass):
+
+    """
+    Represents a Dragon capsule.
+
+    Attributes
+    ----------
+    id: :class:`str`
+        The dragon's ID.
+    heat_shield: :class:`HeatShield`
+        The dragon's heat shield.
+    launch_payload_mass: :class:`Mass`
+        The payload mass at launch.
+    launch_payload_vol: :class:`Volume`
+        The payload volume at launch.
+    return_payload_mass: :class:`Mass`
+        The payload mass when returning.
+    return_payload_vol: :class:`Volume`
+        The payload volume when returning.
+    pressurized_capsule: :class:`Volume`
+        The pressurized capsule volume.
+    trunk: :class:`Trunk`
+        The dragon's trunk.
+    height_w_trunk: :class:`Measurement`
+        The dragon's height with trunk.
+    diamenter: :class:`Measurement`
+        The dragon's diameter.
+    first_flight: :class:`str`
+        The dragon's first flight id.
+    flickr_images: List[:class:`str`]
+        A list of capsule images.
+    name: class:`str`
+        The dragon's name.
+    type: class:`str`
+        The dragon's type.
+    active: class:`bool`
+        The dragon's status.
+    crew_capacity: class:`int`
+        The dragon's crew capacity.
+    sidewall_angle_deg: class:`int`
+        The dragon's sidewall angle in degrees.
+    orbit_duration_yr: class:`int`
+        The dragon's orbit duration.
+    dry_mass_kg: class:`int`
+        The dragon's dry mass in kg.
+    dry_mass_lb: class:`int`
+        The dragon's dry mass in lb.
+    thrusters: List[class:`Thruster`]
+        The dragon's thrusters.
+    wikipedia: class:`str`
+        The dragon's wikipedia page.
+    wikipedia: class:`str`
+        The dragon's description.
+    """
 
     __slots__ = (
         "id",

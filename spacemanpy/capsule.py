@@ -4,6 +4,29 @@ from spacemanpy.utils.objects import BaseClass
 
 class Capsule(BaseClass):
 
+    """
+    Represents a Capsule.
+
+    Attributes
+    ----------
+    id: :class:`str`
+        The capsule id.
+    reuse_count: :class:`int`
+        The amount of times the capsule was reused.
+    water_landings: :class:`int`
+        The amount of water landings.
+    last_update: :class:`str`
+        The last official status update on the capsule.
+    launches: List[:class:`str`]
+        A list of the capsule launches ids.
+    serial: :class:`str`
+        The capsule serial.
+    status: :class:`str`
+        The capsule status.
+    type: :class:`str`
+        The capsule type,
+    """
+
     __slots__ = (
         "id",
         "reuse_count",

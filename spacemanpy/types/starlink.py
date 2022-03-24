@@ -50,7 +50,7 @@ class StarlinkData(TypedDict):
     spacetrack: SpaceTrackData
     height_km: float
     latitude: float
-    launch: str
     longitude: float
+    launch: str
     velocity_kms: float
     version: str

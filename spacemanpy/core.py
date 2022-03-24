@@ -4,6 +4,31 @@ from spacemanpy.utils.objects import BaseClass
 
 class Core(BaseClass):
 
+    """
+    Represents a Core.
+
+    Attributes
+    ----------
+    id: :class:`str`
+        The core ID.
+    block: :class:`int`
+        The core block number.
+    reuse_count: :class:`int`
+        The amount of reuses.
+    rtls_attempts: :class:`int`
+        The amount of RTLS attempts.
+    asds_landings: :class:`int`
+        The amount of ASDS attempts.
+    last_update: :class:`str`
+        The last official update on the core.
+    launches: List[:class:`str`]
+        A list of launches IDS in which the core participated.
+    serial: :class:`str`
+        The core's serial.
+    status: :class:`str`
+        The core's status.
+    """
+
     __slots__ = (
         "id",
         "block",

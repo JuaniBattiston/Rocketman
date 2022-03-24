@@ -4,6 +4,25 @@ from spacemanpy.utils.objects import BaseClass
 
 class HistoricEvent(BaseClass):
 
+    """
+    Represents a historic event.
+
+    Attributes
+    ----------
+    id: :class:`str`
+        The event ID.
+    links: Dict[:class:`str`, :class:`str`]
+        Event relevant links.
+    title: :class:`str`
+        The event's title.
+    event_date_utc: :class:`str`
+        The event's date in UTC.
+    event_date_unix: :class:`int`
+        The event's date in unix time.
+    details: :class:`str`
+        The event's details.
+    """
+
     __slots__ = (
         "id",
         "links",

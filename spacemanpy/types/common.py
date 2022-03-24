@@ -1,4 +1,4 @@
-from typing import TypedDict, Union
+from typing import Optional, TypedDict, Union
 
 
 class MassType(TypedDict):
@@ -7,10 +7,10 @@ class MassType(TypedDict):
 
 
 class WeightType(TypedDict):
-    id: str
+    id: Optional[str]
     kg: int
     lb: int
-    name: str
+    name: Optional[str]
 
 
 class VolumeType(TypedDict):
@@ -19,8 +19,8 @@ class VolumeType(TypedDict):
 
 
 class MeasurementType(TypedDict):
-    feet: Union[int, None]
     meters: Union[int, None]
+    feet: Union[int, None]
 
 
 class ThrustType(TypedDict):
