@@ -26,6 +26,7 @@ body:
   - type: checkboxes
     id: no-duplicate-requests
     attributes:
+      label: "Do you want to help develop your idea?"
       options:
         - label: "I want to help implement the idea."
           required: false
