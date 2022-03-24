@@ -1,5 +1,5 @@
-from rocketman.types.core import CoreData
-from rocketman.utils.objects import BaseClass
+from .types.core import CoreData
+from .utils.objects import BaseClass
 
 
 class Core(BaseClass):

@@ -1,5 +1,5 @@
-from rocketman.types.launch import FailureData, FairingData, LaunchData
-from rocketman.utils.objects import BaseClass
+from .types.launch import FailureData, FairingData, LaunchData
+from .utils.objects import BaseClass
 
 
 class Fairing(BaseClass):

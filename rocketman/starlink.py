@@ -1,5 +1,5 @@
-from rocketman.types.starlink import StarlinkData, SpaceTrackData
-from rocketman.utils.objects import BaseClass
+from .types.starlink import StarlinkData, SpaceTrackData
+from .utils.objects import BaseClass
 
 
 class SpaceTrack(BaseClass):

@@ -1,5 +1,5 @@
-from rocketman.common import BaseClass, Mass, Measurement, Thrust, Weight
-from rocketman.types.rocket import (
+from .common import BaseClass, Mass, Measurement, Thrust, Weight
+from .types.rocket import (
     EngineType,
     LandingLegType,
     RocketData,

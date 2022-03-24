@@ -1,5 +1,5 @@
-from rocketman.types.roadster import RoadsterData
-from rocketman.utils.objects import BaseClass
+from .types.roadster import RoadsterData
+from .utils.objects import BaseClass
 
 
 class Roadster(BaseClass):

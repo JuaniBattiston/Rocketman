@@ -19,7 +19,7 @@ from rocketman.http import HTTPClient
 
 from typing import List, Optional
 
-__all__ = ("Spaceman",)
+__all__ = ("Rocketman",)
 
 
 class Rocketman:

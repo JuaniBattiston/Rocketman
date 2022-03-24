@@ -1,5 +1,5 @@
-from rocketman.types.ship import ShipData
-from rocketman.utils.objects import BaseClass
+from .types.ship import ShipData
+from .utils.objects import BaseClass
 
 
 class Ship(BaseClass):

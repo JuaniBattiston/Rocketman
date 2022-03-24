@@ -1,5 +1,5 @@
-from rocketman.types.company import CompanyData, CompanyLinksData, HeadquartersData
-from rocketman.utils.objects import BaseClass
+from .types.company import CompanyData, CompanyLinksData, HeadquartersData
+from .utils.objects import BaseClass
 
 
 class Headquarters(BaseClass):

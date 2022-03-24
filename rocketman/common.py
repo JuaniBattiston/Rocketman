@@ -1,11 +1,11 @@
-from rocketman.types.common import (
+from .types.common import (
     MassType,
     MeasurementType,
     ThrustType,
     VolumeType,
     WeightType,
 )
-from rocketman.utils.objects import BaseClass
+from .utils.objects import BaseClass
 
 
 class Mass(BaseClass):

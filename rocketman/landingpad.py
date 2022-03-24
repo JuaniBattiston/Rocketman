@@ -1,5 +1,5 @@
-from rocketman.types.landingpad import LandingPadData
-from rocketman.utils.objects import BaseClass
+from .types.landingpad import LandingPadData
+from .utils.objects import BaseClass
 
 
 class LandingPad(BaseClass):
