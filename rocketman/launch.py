@@ -1,5 +1,5 @@
-from spacemanpy.types.launch import FailureData, FairingData, LaunchData
-from spacemanpy.utils.objects import BaseClass
+from rocketman.types.launch import FailureData, FairingData, LaunchData
+from rocketman.utils.objects import BaseClass
 
 
 class Fairing(BaseClass):

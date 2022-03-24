@@ -1,28 +1,28 @@
 import asyncio
 import aiohttp
 
-from spacemanpy.crewmember import CrewMember
-from spacemanpy.capsule import Capsule
-from spacemanpy.company import Company
-from spacemanpy.core import Core
-from spacemanpy.dragon import Dragon
-from spacemanpy.history import HistoricEvent
-from spacemanpy.landingpad import LandingPad
-from spacemanpy.launch import Launch
-from spacemanpy.launchpad import LaunchPad
-from spacemanpy.payload import Payload
-from spacemanpy.roadster import Roadster
-from spacemanpy.rocket import Rocket
-from spacemanpy.ship import Ship
-from spacemanpy.starlink import Starlink
-from spacemanpy.http import HTTPClient
+from rocketman.crewmember import CrewMember
+from rocketman.capsule import Capsule
+from rocketman.company import Company
+from rocketman.core import Core
+from rocketman.dragon import Dragon
+from rocketman.history import HistoricEvent
+from rocketman.landingpad import LandingPad
+from rocketman.launch import Launch
+from rocketman.launchpad import LaunchPad
+from rocketman.payload import Payload
+from rocketman.roadster import Roadster
+from rocketman.rocket import Rocket
+from rocketman.ship import Ship
+from rocketman.starlink import Starlink
+from rocketman.http import HTTPClient
 
 from typing import List, Optional
 
 __all__ = ("Spaceman",)
 
 
-class Spaceman:
+class Rocketman:
     def __init__(
         self,
         loop: Optional[asyncio.AbstractEventLoop] = None,

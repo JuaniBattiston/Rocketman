@@ -1,5 +1,5 @@
 from typing import Dict, List, Optional, TypedDict, Union
-from spacemanpy.types.common import (
+from rocketman.types.common import (
     ThrustType,
     MeasurementType,
     WeightType,

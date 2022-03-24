@@ -1,11 +1,11 @@
-from spacemanpy.types.common import (
+from rocketman.types.common import (
     MassType,
     MeasurementType,
     ThrustType,
     VolumeType,
     WeightType,
 )
-from spacemanpy.utils.objects import BaseClass
+from rocketman.utils.objects import BaseClass
 
 
 class Mass(BaseClass):

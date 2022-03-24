@@ -3,7 +3,7 @@ import asyncio
 import sys
 from typing import Optional, Union
 
-from spacemanpy.errors import InvalidHTTPMethod, NotFound
+from rocketman.errors import InvalidHTTPMethod, NotFound
 
 
 class HTTPClient:

@@ -1,5 +1,5 @@
-from spacemanpy.types.launchpad import LaunchPadData
-from spacemanpy.utils.objects import BaseClass
+from rocketman.types.launchpad import LaunchPadData
+from rocketman.utils.objects import BaseClass
 
 
 class LaunchPad(BaseClass):

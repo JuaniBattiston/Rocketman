@@ -1,5 +1,5 @@
-from spacemanpy.types.company import CompanyData, CompanyLinksData, HeadquartersData
-from spacemanpy.utils.objects import BaseClass
+from rocketman.types.company import CompanyData, CompanyLinksData, HeadquartersData
+from rocketman.utils.objects import BaseClass
 
 
 class Headquarters(BaseClass):

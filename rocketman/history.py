@@ -1,5 +1,5 @@
-from spacemanpy.types.history import HistoricEventData
-from spacemanpy.utils.objects import BaseClass
+from rocketman.types.history import HistoricEventData
+from rocketman.utils.objects import BaseClass
 
 
 class HistoricEvent(BaseClass):

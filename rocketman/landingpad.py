@@ -1,5 +1,5 @@
-from spacemanpy.types.landingpad import LandingPadData
-from spacemanpy.utils.objects import BaseClass
+from rocketman.types.landingpad import LandingPadData
+from rocketman.utils.objects import BaseClass
 
 
 class LandingPad(BaseClass):

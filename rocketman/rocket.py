@@ -1,5 +1,5 @@
-from spacemanpy.common import BaseClass, Mass, Measurement, Thrust, Weight
-from spacemanpy.types.rocket import (
+from rocketman.common import BaseClass, Mass, Measurement, Thrust, Weight
+from rocketman.types.rocket import (
     EngineType,
     LandingLegType,
     RocketData,

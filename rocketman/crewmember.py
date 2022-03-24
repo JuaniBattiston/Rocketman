@@ -1,5 +1,5 @@
-from spacemanpy.types.crewmember import CrewMemberData
-from spacemanpy.utils.objects import BaseClass
+from rocketman.types.crewmember import CrewMemberData
+from rocketman.utils.objects import BaseClass
 
 
 class CrewMember(BaseClass):

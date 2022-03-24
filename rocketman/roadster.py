@@ -1,5 +1,5 @@
-from spacemanpy.types.roadster import RoadsterData
-from spacemanpy.utils.objects import BaseClass
+from rocketman.types.roadster import RoadsterData
+from rocketman.utils.objects import BaseClass
 
 
 class Roadster(BaseClass):

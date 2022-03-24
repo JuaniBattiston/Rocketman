@@ -1,12 +1,12 @@
-from spacemanpy.common import Mass, Measurement, Volume
-from spacemanpy.types.dragon import (
+from rocketman.common import Mass, Measurement, Volume
+from rocketman.types.dragon import (
     CargoData,
     DragonData,
     HeatShieldData,
     ThrusterData,
     TrunkData,
 )
-from spacemanpy.utils.objects import BaseClass
+from rocketman.utils.objects import BaseClass
 
 
 class HeatShield(BaseClass):

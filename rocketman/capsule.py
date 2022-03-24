@@ -1,5 +1,5 @@
-from spacemanpy.types.capsule import CapsuleData
-from spacemanpy.utils.objects import BaseClass
+from rocketman.types.capsule import CapsuleData
+from rocketman.utils.objects import BaseClass
 
 
 class Capsule(BaseClass):

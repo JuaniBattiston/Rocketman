@@ -1,5 +1,5 @@
 from typing import List, TypedDict
-from spacemanpy.types.common import (
+from rocketman.types.common import (
     VolumeType,
     ThrustType,
     MassType,

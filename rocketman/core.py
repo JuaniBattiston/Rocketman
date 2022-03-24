@@ -1,5 +1,5 @@
-from spacemanpy.types.core import CoreData
-from spacemanpy.utils.objects import BaseClass
+from rocketman.types.core import CoreData
+from rocketman.utils.objects import BaseClass
 
 
 class Core(BaseClass):

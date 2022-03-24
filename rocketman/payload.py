@@ -1,5 +1,5 @@
-from spacemanpy.types.payload import PayloadData, DragonPayloadData
-from spacemanpy.utils.objects import BaseClass
+from rocketman.types.payload import PayloadData, DragonPayloadData
+from rocketman.utils.objects import BaseClass
 
 
 class DragonPayload(BaseClass):
