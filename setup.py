@@ -14,7 +14,7 @@ setup(
     author_email="juani.battiston2002@gmail.com",
     url="https://github.com/Batucho/Rocketman",
     project_urls={},
-    version="0.1.0",
+    version="0.1.1",
     packages=find_packages(),
     license="MIT",
     description="An API wrapper for the r/SpaceX API",
