@@ -1,21 +1,22 @@
 from typing import Dict, List, TypedDict, Union
 
 
-class Fairing(TypedDict):
+class FairingData(TypedDict):
     recovered: bool
     recovery_attempt: bool
     reused: bool
     ships: List[str]
 
 
-class Failure(TypedDict):
+class FailureData(TypedDict):
+    time: Union[int, None]
     altitude: Union[float, None]
-    reason: str
+    reason: Union[str, None]
 
 
 class LaunchData(TypedDict):
     id: str
-    fairings: Fairing
+    fairings: FairingData
     links: Dict
     static_fire_date_utc: str
     static_fire_date_unix: int
@@ -23,7 +24,7 @@ class LaunchData(TypedDict):
     window: int
     rocket: str
     success: bool
-    failures: List[Failure]
+    failures: List[FailureData]
     details: str
     crew: List[str]
     ships: List[str]

@@ -1,13 +1,13 @@
 from typing import TypedDict
 
 
-class Headquarters(TypedDict):
+class HeadquartersData(TypedDict):
     address: str
     city: str
     state: str
 
 
-class CompanyLinks(TypedDict):
+class CompanyLinksData(TypedDict):
     website: str
     flickr: str
     twitter: str
@@ -16,8 +16,8 @@ class CompanyLinks(TypedDict):
 
 class CompanyData(TypedDict):
     id: str
-    headquaters: Headquarters
-    links: CompanyLinks
+    headquarters: HeadquartersData
+    links: CompanyLinksData
     name: str
     founder: str
     founded: int

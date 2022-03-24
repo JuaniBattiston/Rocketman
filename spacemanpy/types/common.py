@@ -1,28 +1,28 @@
-from typing import TypedDict, Union
+from typing import Optional, TypedDict, Union
 
 
-class Mass(TypedDict):
+class MassType(TypedDict):
     kg: Union[int, None]
     lb: Union[int, None]
 
 
-class Weight(TypedDict):
-    id: str
+class WeightType(TypedDict):
+    id: Optional[str]
     kg: int
     lb: int
-    name: str
+    name: Optional[str]
 
 
-class Volume(TypedDict):
+class VolumeType(TypedDict):
     cubic_meters: Union[int, None]
     cubic_feet: Union[int, None]
 
 
-class Measurement(TypedDict):
-    feet: Union[int, None]
+class MeasurementType(TypedDict):
     meters: Union[int, None]
+    feet: Union[int, None]
 
 
-class Thrust(TypedDict):
+class ThrustType(TypedDict):
     kN: Union[float, None]
     lbf: Union[int, None]

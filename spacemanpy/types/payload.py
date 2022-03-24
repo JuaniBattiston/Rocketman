@@ -1,7 +1,7 @@
 from typing import List, TypedDict, Union
 
 
-class DragonPayload(TypedDict):
+class DragonPayloadData(TypedDict):
     capsule: Union[str, None]
     flight_time_sec: Union[int, None]
     land_landing: Union[bool, None]
@@ -13,7 +13,7 @@ class DragonPayload(TypedDict):
 
 class PayloadData(TypedDict):
     id: str
-    dragon: DragonPayload
+    dragon: DragonPayloadData
     name: str
     type: str
     reused: bool

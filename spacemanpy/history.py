@@ -1,13 +1,40 @@
 from spacemanpy.types.history import HistoricEventData
+from spacemanpy.utils.objects import BaseClass
 
 
-class HistoricEvent:
+class HistoricEvent(BaseClass):
+
+    """
+    Represents a historic event.
+
+    Attributes
+    ----------
+    id: :class:`str`
+        The event ID.
+    links: Dict[:class:`str`, :class:`str`]
+        Event relevant links.
+    title: :class:`str`
+        The event's title.
+    event_date_utc: :class:`str`
+        The event's date in UTC.
+    event_date_unix: :class:`int`
+        The event's date in unix time.
+    details: :class:`str`
+        The event's details.
+    """
+
+    __slots__ = (
+        "id",
+        "links",
+        "title",
+        "event_date_utc",
+        "event_date_unix",
+        "details",
+    )
+
     def __init__(self, data: HistoricEventData):
+        self._objects = {}
         self._update(data)
-
-    def _update(self, data: HistoricEventData):
-        for k, v in data.items():
-            setattr(self, k, v)
 
     def __str__(self) -> str:
         return self.name

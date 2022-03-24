@@ -1,50 +1,50 @@
 from typing import List, TypedDict
 from spacemanpy.types.common import (
-    Volume,
-    Thrust,
-    Mass,
-    Measurement,
+    VolumeType,
+    ThrustType,
+    MassType,
+    MeasurementType,
 )
 
 
-class HeatShield(TypedDict):
+class HeatShieldData(TypedDict):
     material: str
     size: float
     temp_degrees: int
     dev_partner: str
 
 
-class Cargo(TypedDict):
+class CargoData(TypedDict):
     solar_array: int
     unpressurized_cargo: bool
 
 
-class Trunk(TypedDict):
-    cargo: Cargo
-    trunk_volume: Volume
+class TrunkData(TypedDict):
+    cargo: CargoData
+    trunk_volume: VolumeType
 
 
-class Thruster(TypedDict):
+class ThrusterData(TypedDict):
     amount: int
     fuel_1: str
     fuel_2: str
     isp: int
     pods: int
-    thrust: Thrust
+    thrust: ThrustType
     type: str
 
 
 class DragonData(TypedDict):
     id: str
-    heat_shield: HeatShield
-    launch_payload_mass: Mass
-    launch_payload_vol: Volume
-    return_payload_mass: Mass
-    return_payload_vol: Volume
-    pressurized_capsule: Volume
-    trunk: Trunk
-    height_w_trunk: Measurement
-    diamenter: Measurement
+    heat_shield: HeatShieldData
+    launch_payload_mass: MassType
+    launch_payload_vol: VolumeType
+    return_payload_mass: MassType
+    return_payload_vol: VolumeType
+    pressurized_capsule: VolumeType
+    trunk: TrunkData
+    height_w_trunk: MeasurementType
+    diamenter: MeasurementType
     first_flight: str
     flickr_images: List[str]
     name: str
@@ -55,6 +55,6 @@ class DragonData(TypedDict):
     orbit_duration_yr: int
     dry_mass_kg: int
     dry_mass_lb: int
-    thrusters: List[Thruster]
+    thrusters: List[ThrusterData]
     wikipedia: str
     description: str
