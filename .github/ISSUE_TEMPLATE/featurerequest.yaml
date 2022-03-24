@@ -1,0 +1,31 @@
+name: "🐍 Feature Request"
+description: "Submit a feature request."
+title: "🐍 Feature Request"
+labels: [feature]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing to the lib! 🙏
+  - type: textarea
+    id: requested-feature
+    validations:
+      required: true
+    attributes:
+      label: "💡 Feature Request."
+      description: "What do you think the lib is missing?"
+      placeholder: "..."
+  - type: textarea
+    id: planned-implementation
+    validations:
+      required: false
+    attributes:
+      label: "🛠️ Implementation"
+      description: "Do you have any idea on how to implement this?"
+      placeholder: "..."
+  - type: checkboxes
+    id: no-duplicate-requests
+    attributes:
+      options:
+        - label: "I want to help implement the idea."
+          required: false
