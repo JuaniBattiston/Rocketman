@@ -1,4 +1,4 @@
-# Rocketman
+# 🚀Rocketman
 
 A lightweight API wrapper for the [r/SpaceX API](https://github.com/r-spacex/SpaceX-API)
 
@@ -15,7 +15,9 @@ Clone repository:
 ```
 $ git clone https://github.com/Batucho/Rocketman
 ```
+# Code Examples
 
+### Simple launches search
 ```py
 import sys
 import asyncio
