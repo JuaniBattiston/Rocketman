@@ -1,6 +1,6 @@
 # Rocketman
 
-A lightweight API wrapper for the r/SpaceX API
+A lightweight API wrapper for the [r/SpaceX API](https://github.com/r-spacex/SpaceX-API)
 
 # Installation
 
