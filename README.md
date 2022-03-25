@@ -26,7 +26,7 @@ from rocketman import Rocketman
 
 async def main():
     rocketman = Rocketman()
-    launches = await r.get_launches()
+    launches = await rocketman.get_launches()
     print(launches[-1].id)
 
 
