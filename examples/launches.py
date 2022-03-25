@@ -4,9 +4,9 @@ from rocketman import Rocketman
 
 
 async def main():
-    r = Rocketman()
-    a = await r.get_launches()
-    print(a[-1].id)
+    rocketman = Rocketman()
+    launches = await r.get_launches()
+    print(launches[-1].id)
 
 
 if sys.platform.startswith("win"):  # Dumb asyncio stuff
