@@ -22,7 +22,7 @@ class HTTPClient:
             timeout=aiohttp.ClientTimeout(total=None),
         )
 
-        user_agent = "Spaceman API Wrapper (https://github.com/Batucho/Spacemanpy) Python/{0[0]}.{0[1]} aiohttp/{1}"
+        user_agent = "Spaceman API Wrapper (https://github.com/Batucho/Rocketman) Python/{0[0]}.{0[1]} aiohttp/{1}"
         self.user_agent: str = user_agent.format(sys.version_info, aiohttp.__version__)
 
     async def request(
